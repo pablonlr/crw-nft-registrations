@@ -1,0 +1,4 @@
+github.com/BurntSushi/toml v1.2.1 h1:9F2/+DoOYIOksmaJFPw1tGFy1eDnIJXg+UHjuD8lTak=
+github.com/BurntSushi/toml v1.2.1/go.mod h1:CxXYINrC8qIiEnFrOxCa7Jy5BFHlXnUU2pbicEuybxQ=
+github.com/pablonlr/go-rpc-crownd v0.0.0-20220417020629-3c0c9f13e623 h1:SRZR6JMghiuXWOjWqAt80P5lGuGxrUuwkJzgVV6h4FI=
+github.com/pablonlr/go-rpc-crownd v0.0.0-20220417020629-3c0c9f13e623/go.mod h1:qgvVaL9MOhrQc6qhpHBJXkcyJhrzRSE0fQ36skPV0CU=
