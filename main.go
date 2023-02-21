@@ -45,7 +45,7 @@ func main() {
 		}
 	}
 
-	err = mintNTokens(configuration, client)
+	err = mintNTokens(configuration, client, true)
 	if err != nil {
 		log.Println("error minting token on init: ", err.Error())
 	}
@@ -63,7 +63,7 @@ func main() {
 				log.Println("New NFT Minting Round", t)
 				//unlockWallet
 
-				err := mintNTokens(configuration, client)
+				err := mintNTokens(configuration, client, false)
 				if err != nil {
 					log.Println("error minting token: ", err.Error(), t)
 				}
@@ -74,7 +74,7 @@ func main() {
 
 }
 
-func mintNTokens(conf *Config, client *crown.Client) error {
+func mintNTokens(conf *Config, client *crown.Client, returnOnErr bool) error {
 	n := conf.TokensToMintInRound
 	protocol := conf.ProtocolID
 	addr := conf.CrwOwnerAddress
@@ -85,7 +85,11 @@ func mintNTokens(conf *Config, client *crown.Client) error {
 		meta := fmt.Sprintf("test token %s", id)
 		result, err := client.RegisterNFToken(protocol, id, addr, addr, meta)
 		if err != nil {
-			return err
+			if returnOnErr {
+				return err
+			}
+			log.Println("error minting token: ", err.Error())
+			continue
 		}
 		log.Println("new registration: ", result)
 	}
